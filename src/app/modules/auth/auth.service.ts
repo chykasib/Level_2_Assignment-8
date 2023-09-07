@@ -1,4 +1,4 @@
-import { Prisma, User } from "@prisma/client";
+import { User } from "@prisma/client";
 
 import prisma from "../../../shared/prisma";
 import ApiError from "../../../error/ApiError";
