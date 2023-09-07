@@ -68,7 +68,6 @@ model Order {
   userId        String
   @@map("order")
 }
-
 enum OrderStatus {
   pending
   shipped
