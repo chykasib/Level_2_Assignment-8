@@ -35,7 +35,7 @@ const getSingleOrderById = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
-export const CategoryController = {
+export const OrderController = {
   createOrder,
   getAllOrder,
   getSingleOrderById,
