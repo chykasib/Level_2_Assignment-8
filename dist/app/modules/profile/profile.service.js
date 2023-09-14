@@ -14,8 +14,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserProfileService = void 0;
 const prisma_1 = __importDefault(require("../../../shared/prisma"));
-const getUserProfileData = () => __awaiter(void 0, void 0, void 0, function* () {
-    const result = yield prisma_1.default.user.findMany();
+const getUserProfileData = (userId) => __awaiter(void 0, void 0, void 0, function* () {
+    const result = yield prisma_1.default.user.findUnique({
+        where: {
+            id: userId.userId,
+        },
+    });
     return result;
 });
 exports.UserProfileService = {

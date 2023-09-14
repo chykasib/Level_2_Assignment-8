@@ -18,7 +18,9 @@ const sendResponse_1 = __importDefault(require("../../../shared/sendResponse"));
 const http_status_1 = __importDefault(require("http-status"));
 const profile_service_1 = require("./profile.service");
 const getUserProfileData = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const result = yield profile_service_1.UserProfileService.getUserProfileData();
+    const user = req.user;
+    console.log(user);
+    const result = yield profile_service_1.UserProfileService.getUserProfileData(user);
     (0, sendResponse_1.default)(res, {
         statusCode: http_status_1.default.OK,
         success: true,

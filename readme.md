@@ -29,4 +29,4 @@ https://book-catallog-prisma-postgres.vercel.app/api/v1/orders/create-order (POS
 https://book-catallog-prisma-postgres.vercel.app/api/v1/orders (GET)
 https://book-catallog-prisma-postgres.vercel.app/api/v1/orders/a0680de3-b7d0-4e96-8e04-b85d57752f91 (GET)
 
-api/v1/profile (GET)
+https://book-catallog-prisma-postgres.vercel.app/api/v1/profile (GET)
