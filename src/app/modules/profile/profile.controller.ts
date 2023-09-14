@@ -5,7 +5,8 @@ import httpStatus from "http-status";
 import { UserProfileService } from "./profile.service";
 
 const getUserProfileData = catchAsync(async (req: Request, res: Response) => {
-  const result = await UserProfileService.getUserProfileData();
+  const user = (req as any).user;
+  const result = await UserProfileService.getUserProfileData(user);
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,

@@ -6,12 +6,12 @@ export type ILoginUser = {
 };
 
 export type ILoginUserResponse = {
-  accessToken: string;
+  token: string;
   refreshToken?: string;
 };
 
 export type IRefreshTokenResponse = {
-  accessToken: string;
+  token: string;
 };
 
 export type IVerifiedLoginUser = {
