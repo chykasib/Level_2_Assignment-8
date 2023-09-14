@@ -17,19 +17,19 @@ const order_service_1 = require("./order.service");
 const catchAsync_1 = __importDefault(require("../../../shared/catchAsync"));
 const sendResponse_1 = __importDefault(require("../../../shared/sendResponse"));
 const http_status_1 = __importDefault(require("http-status"));
-// const createOrder = catchAsync(async (req: Request, res: Response) => {
-//   const userId = req.user;
-//   const orderedBooks = req.body;
-//   const result = await OrderService.createOrder(userId, orderedBooks);
-//   sendResponse(res, {
-//     statusCode: httpStatus.OK,
-//     success: true,
-//     message: "Order created successfully",
-//     data: result,
-//   });
-// });
+const createOrder = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const user = req.user;
+    const result = yield order_service_1.OrderService.createOrder(req.body, user.userId);
+    (0, sendResponse_1.default)(res, {
+        statusCode: http_status_1.default.OK,
+        success: true,
+        message: "Order created successfully",
+        data: result,
+    });
+}));
 const getAllOrder = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const result = yield order_service_1.OrderService.getAllOrder();
+    const user = req.user;
+    const result = yield order_service_1.OrderService.getAllOrders(user);
     (0, sendResponse_1.default)(res, {
         statusCode: http_status_1.default.OK,
         success: true,
@@ -38,8 +38,9 @@ const getAllOrder = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, vo
     });
 }));
 const getSingleOrderById = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { id } = req.params;
-    const result = yield order_service_1.OrderService.getSingleOrderById(id);
+    const user = req.user;
+    const { orderId } = req.params;
+    const result = yield order_service_1.OrderService.getSingleOrderById(orderId, user);
     (0, sendResponse_1.default)(res, {
         statusCode: http_status_1.default.OK,
         success: true,
@@ -48,7 +49,7 @@ const getSingleOrderById = (0, catchAsync_1.default)((req, res) => __awaiter(voi
     });
 }));
 exports.OrderController = {
-    // createOrder,
+    createOrder,
     getAllOrder,
     getSingleOrderById,
 };

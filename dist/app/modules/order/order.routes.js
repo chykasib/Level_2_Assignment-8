@@ -9,11 +9,7 @@ const order_controller_1 = require("./order.controller");
 const middleware_1 = __importDefault(require("../../middleware/middleware"));
 const user_1 = require("../../../enums/user");
 const router = express_1.default.Router();
-// router.post(
-//   "/create-order",
-//   auth(ENUM_USER_ROLE.CUSTOMER),
-//   OrderController.createOrder
-// );
-router.get("/", (0, middleware_1.default)(user_1.ENUM_USER_ROLE.ADMIN), (0, middleware_1.default)(user_1.ENUM_USER_ROLE.CUSTOMER), order_controller_1.OrderController.getAllOrder);
-router.get("/:orderId", (0, middleware_1.default)(user_1.ENUM_USER_ROLE.ADMIN), (0, middleware_1.default)(user_1.ENUM_USER_ROLE.CUSTOMER), order_controller_1.OrderController.getSingleOrderById);
+router.post("/create-order", (0, middleware_1.default)(user_1.ENUM_USER_ROLE.CUSTOMER), order_controller_1.OrderController.createOrder);
+router.get("/", (0, middleware_1.default)(user_1.ENUM_USER_ROLE.CUSTOMER, user_1.ENUM_USER_ROLE.ADMIN), order_controller_1.OrderController.getAllOrder);
+router.get("/:orderId", (0, middleware_1.default)(user_1.ENUM_USER_ROLE.CUSTOMER, user_1.ENUM_USER_ROLE.ADMIN), order_controller_1.OrderController.getSingleOrderById);
 exports.OrderRoutes = router;

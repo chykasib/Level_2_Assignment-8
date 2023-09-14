@@ -9,5 +9,5 @@ const profile_controller_1 = require("./profile.controller");
 const middleware_1 = __importDefault(require("../../middleware/middleware"));
 const user_1 = require("../../../enums/user");
 const router = express_1.default.Router();
-router.get("/", (0, middleware_1.default)(user_1.ENUM_USER_ROLE.ADMIN), (0, middleware_1.default)(user_1.ENUM_USER_ROLE.CUSTOMER), profile_controller_1.UserProfileController.getUserProfileData);
+router.get("/", (0, middleware_1.default)(user_1.ENUM_USER_ROLE.ADMIN, user_1.ENUM_USER_ROLE.CUSTOMER), profile_controller_1.UserProfileController.getUserProfileData);
 exports.UserProfileRoutes = router;
